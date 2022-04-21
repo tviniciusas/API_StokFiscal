@@ -1,10 +1,11 @@
 const mysql = require('mysql2');
 require('dotenv/config');
 const password = process.env.password;
+const username = process.env.username;
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
+  user: username,
   password: password,
   database: 'integrador_istock',
 });
