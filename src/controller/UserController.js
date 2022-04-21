@@ -1,4 +1,4 @@
-const con = require("../config/database/mysql");
+const con = require("../config/databases/mysql");
 
 module.exports = {
     

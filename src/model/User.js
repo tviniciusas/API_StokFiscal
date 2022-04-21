@@ -1,4 +1,4 @@
-const conn = require("../config/database/mysql");
+const conn = require("../config/databases/mysql");
 
 module.exports = {
   async createTableUser(req, res) {
@@ -11,22 +11,22 @@ module.exports = {
       " tipo VARCHAR(255)," +
       " isAdmin BOOLEAN DEFAULT FALSE)";
 
-    con.query(SQL, (err) => {
+      conn.query(SQL, (err) => {
       if (err) {
         console.log(err);
       }
-      res.send("TABLE users created");
+      res.json("TABLE users created");
     });
   },
 
   async dropTableUser(req, res) {
     SQL = "DROP TABLE IF EXISTS users";
 
-    con.query(SQL, (err) => {
+    conn.query(SQL, (err) => {
       if (err) {
         console.log(err);
       }
-      res.send("TABLE users dropped");
+      res.json("TABLE users dropped");
     });
   },
 };

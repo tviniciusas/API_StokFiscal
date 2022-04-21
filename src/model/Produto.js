@@ -1,4 +1,4 @@
-const conn = require("../config/database/mysql");
+const conn = require("../config/databases/mysql");
 
 module.exports = {
   async createTable(req, res) {
