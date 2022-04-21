@@ -1,7 +1,6 @@
 const conn = require("../config/database/mysql");
 
 module.exports = {
-    
   async createTable(req, res) {
     let SQL =
       "CREATE TABLE IF NOT EXISTS Produtos (" +
@@ -9,14 +8,14 @@ module.exports = {
       "cod_prod varchar(100) NOT NULL," +
       "descricao varchar(255) NOT NULL," +
       "ean varchar(100) NOT NULL," +
-      "ncm varchar(100) NOT NULL," +
-      "ex_tipi varchar(100) NOT NULL," +
-      "cest varchar(100) NOT NULL," +
-      "und varchar(100) NOT NULL," +
-      "tipo_item varchar(100) NOT NULL," +
-      "icms varchar(100) NOT NULL," +
-      "red_bc_icms varchar(100) NOT NULL," +
-      "item_st varchar(100) NOT NULL," +
+      "ncm varchar(100) ," +
+      "ex_tipi varchar(100) ," +
+      "cest varchar(100) ," +
+      "und varchar(100) ," +
+      "tipo_item varchar(100) ," +
+      "icms varchar(100)," +
+      "red_bc_icms decimal(6,2) ," +
+      "item_st decimal(6,2) " +
       "PRIMARY KEY (id))";
 
     conn.query(SQL, (err) => {
@@ -36,5 +35,5 @@ module.exports = {
       }
       res.json("TABLE Produtos dropped");
     });
-  }
+  },
 };

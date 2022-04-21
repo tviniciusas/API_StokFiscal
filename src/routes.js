@@ -8,6 +8,7 @@ router.post('/createuser', UserController.createTableUser)
 
 
 router.get('/produtos', ProdutosController.getAllProdutos);
+router.post('/produtos', ProdutosController.createProduto);
 router.post('/createtable', Produto.createTable);
 
 
