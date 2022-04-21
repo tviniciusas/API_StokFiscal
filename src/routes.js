@@ -4,7 +4,7 @@ const ProdutosController = require('./controller/ProdutosController');
 const Produto = require('./model/Produto');
 
 router.get('/user', UserController.getAllUsers);
-router.post('/createuser', UserController.createTableUser)
+// router.post('/createuser', UserController.createTableUser)
 
 
 router.get('/produtos', ProdutosController.getAllProdutos);
