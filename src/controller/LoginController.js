@@ -12,7 +12,7 @@ module.exports = {
         const token = jwt.sign({ username: rows[0].name , tipo: rows[0].tipo}, SECRET, {
           expiresIn: "7days",
         });
-        return res.json({ auth: true, token });
+        return res.json({auth:true, user: rows[0].name, role: rows[0].tipo, token });
       }
       return res
         .status(500)

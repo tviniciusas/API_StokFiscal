@@ -8,10 +8,9 @@ const isAdmin = require('../config/auth/isAdmin');
 
 router.use(routerLogin);
 router.use(verifyAutenticationJWT);
-router.use(isAdmin);
 router.use(routerUser);
-router.use(routerTable);
-router.use(isAdmin);
 router.use(routerProduto);
+router.use(isAdmin);
+router.use(routerTable);
 
 module.exports = router;
