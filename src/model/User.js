@@ -1,6 +1,7 @@
 const conn = require("../config/databases/mysql");
 
 module.exports = {
+  
   async createTableUser(req, res) {
     SQL =
       " CREATE TABLE IF NOT EXISTS users" +
