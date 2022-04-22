@@ -6,11 +6,11 @@ const routerLogin = require('./routesLogin');
 const verifyAutenticationJWT = require('../config/auth/JwtAuth');
 const isAdmin = require('../config/auth/isAdmin');
 
+router.use(routerTable);
 router.use(routerLogin);
 router.use(verifyAutenticationJWT);
 router.use(routerUser);
 router.use(routerProduto);
 router.use(isAdmin);
-router.use(routerTable);
 
 module.exports = router;

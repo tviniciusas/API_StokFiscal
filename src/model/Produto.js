@@ -14,8 +14,8 @@ module.exports = {
       "und varchar(100) ," +
       "tipo_item varchar(100) ," +
       "icms varchar(100)," +
-      "red_bc_icms decimal(6,2) ," +
-      "item_st decimal(6,2) " +
+      "red_bc_icms decimal(6,4) NOT NULL ," +
+      "item_st decimal(6,4) NOT NULL ," +
       "PRIMARY KEY (id))";
 
     conn.query(SQL, (err) => {

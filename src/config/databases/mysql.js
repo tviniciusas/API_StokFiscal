@@ -1,7 +1,7 @@
 const mysql = require('mysql2');
 require('dotenv/config');
-const password = process.env.password;
-const username = process.env.username;
+const username = process.env.username_mysql;
+const password = process.env.password_mysql;
 
 const connection = mysql.createConnection({
   host: 'localhost',
