@@ -23,7 +23,7 @@ module.exports = {
       ],
       (err) => {
         if (err) {
-          console.log(err);
+          res.json(err);
         }
         res.json("Produto criado");
       }
@@ -35,7 +35,7 @@ module.exports = {
 
     conn.query(SQL, (err, rows) => {
       if (err) {
-        console.log(err);
+        res.json(err);
       }
       res.json(rows);
     });
