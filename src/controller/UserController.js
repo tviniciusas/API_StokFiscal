@@ -11,15 +11,16 @@ module.exports = {
   },
 
   async getUserById(req, res) {
-    try {
-      const [rows, fields] = await conn.query(
-        "SELECT * FROM users WHERE id = ?",
-        [req.params.id]
-      );
-      res.json(rows);
-    } catch (error) {
-      res.status(500).send(error);
-    }
+    conn.query(
+      "SELECT * FROM users WHERE id = ?",
+      [req.params.id],
+      (err, rows) => {
+        if (!err) {
+          return res.json(rows);
+        }
+        return res.status(500).json({ message: "Falha ao buscar usuário" });
+      }
+    );
   },
 
   async createUser(req, res) {
@@ -29,7 +30,9 @@ module.exports = {
         [req.body.name, req.body.email, req.body.password, req.body.tipo],
         (err) => {
           if (!err) {
-            return res.json({ message: `Usuário ${req.body.name} criado com sucesso`});
+            return res.json({
+              message: `Usuário ${req.body.name} criado com sucesso`,
+            });
           }
           return res.status(500).json({ message: "Falha ao criar usuário" });
         }
@@ -43,9 +46,18 @@ module.exports = {
     try {
       const [rows, fields] = await conn.execute(
         "UPDATE users SET name = ?, email = ?, password = ? WHERE id = ?",
-        [req.body.name, req.body.email, req.body.password, req.params.id]
+        [req.body.name, req.body.email, req.body.password, req.params.id],
+        (err) => {
+          if (!err) {
+            return res.json({
+              message: `Usuário ${req.body.name} atualizado com sucesso`,
+            });
+          }
+          return res
+            .status(500)
+            .json({ message: "Falha ao atualizar usuário" });
+        }
       );
-      res.json(rows);
     } catch (error) {
       res.status(500).send(error);
     }

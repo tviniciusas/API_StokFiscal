@@ -2,6 +2,7 @@ const conn = require("../config/databases/mysql");
 
 module.exports = {
   async createTable(req, res) {
+
     let SQL =
       "CREATE TABLE IF NOT EXISTS Produtos (" +
       "id int(10) NOT NULL AUTO_INCREMENT," +
@@ -19,8 +20,9 @@ module.exports = {
       "PRIMARY KEY (id))";
 
     conn.query(SQL, (err) => {
+
       if (err) {
-        console.log(err);
+       res.json(err);
       }
       res.json("TABLE Produtos created");
     });

@@ -1,7 +1,9 @@
 const conn = require("../config/databases/mysql");
 
 module.exports = {
+
   async createProduto(req, res) {
+
     let SQL =
       "INSERT INTO Produtos (cod_prod, descricao, ean, ncm, ex_tipi, cest, und, tipo_item, icms, red_bc_icms, item_st)" +
       "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -31,8 +33,8 @@ module.exports = {
   },
 
   async getAllProdutos(req, res) {
-    let SQL = "SELECT * FROM Produtos";
 
+    let SQL = "SELECT * FROM Produtos";
     conn.query(SQL, (err, rows) => {
       if (err) {
         res.json(err);
@@ -64,7 +66,6 @@ module.exports = {
   },
 
   async updateProdutos(req, res) {
-    
     let SQL =
       "UPDATE Produtos SET cod_prod = ?, descricao = ?, ean = ?, ncm = ?, ex_tipi = ?, cest = ?, und = ?, tipo_item = ?, icms = ?, red_bc_icms = ?, item_st = ? WHERE id = ?";
 
@@ -86,7 +87,7 @@ module.exports = {
       ],
       (err) => {
         if (err) {
-          console.log(err);
+          res.json(err);
         }
         res.json("Produto atualizado");
       }
