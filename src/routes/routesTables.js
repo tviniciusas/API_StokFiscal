@@ -6,6 +6,6 @@ router.post('/create-user-table', User.createTableUser)
 router.post('/drop-user-table', User.dropTableUser)
 
 router.post('/create-produto-table', Produto.createTable);
-router.post('/drop-produto-user', Produto.dropTable);
+router.post('/drop-produto-table', Produto.dropTable);
 
 module.exports = router;
