@@ -46,7 +46,7 @@ module.exports = {
   },
 
   async getProdutosById(req, res) {
-    let SQL = "SELECT * FROM produtos WHERE id = ?";
+    let SQL = "SELECT * FROM produtos WHERE cod_prod = ?";
 
     conn.query(SQL, [req.params.id], (err, rows) => {
       if (err) {
