@@ -14,9 +14,9 @@ module.exports = {
       "cest varchar(100) ," +
       "und varchar(100) ," +
       "tipo_item varchar(100) ," +
-      "icms varchar(100)," +
-      "red_bc_icms decimal(6,4) NOT NULL ," +
-      "item_st decimal(6,4) NOT NULL ," +
+      "p_icms decimal(6,4)," +
+      "p_red_bc_icms decimal(6,4) NOT NULL ," +
+      "item_st varchar(100)," +
       "PRIMARY KEY (id))";
 
     conn.query(SQL, (err) => {
@@ -29,7 +29,7 @@ module.exports = {
   },
 
   async dropTable(req, res) {
-    let SQL = "DROP TABLE IF EXISTS Produtos";
+    let SQL = "DROP TABLE IF EXISTS produtos";
 
     conn.query(SQL, (err) => {
       if (err) {
