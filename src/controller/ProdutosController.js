@@ -5,8 +5,8 @@ module.exports = {
   async createProduto(req, res) {
 
     let SQL =
-      "INSERT INTO produtos (cod_prod, descricao, ean, ncm, ex_tipi, cest, und, tipo_item, p_icms, p_red_bc_icms, item_st)" +
-      "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+      "INSERT INTO produtos (cod_prod, descricao, ean, ncm, ex_tipi, cest, und, tipo_item, p_icms, p_red_bc_icms, item_st, cnpj)" +
+      "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     conn.query(
       SQL,
@@ -22,6 +22,7 @@ module.exports = {
         req.body.p_icms,
         req.body.p_red_bc_icms,
         req.body.item_st,
+        req.body.cnpj,
       ],
       (err) => {
         if (err) {
@@ -67,7 +68,7 @@ module.exports = {
 
   async updateProdutos(req, res) {
     let SQL =
-      "UPDATE produtos SET cod_prod = ?, descricao = ?, ean = ?, ncm = ?, ex_tipi = ?, cest = ?, und = ?, tipo_item = ?, p_icms = ?, p_red_bc_icms = ?, item_st = ? WHERE id = ?";
+      "UPDATE produtos SET cod_prod = ?, descricao = ?, ean = ?, ncm = ?, ex_tipi = ?, cest = ?, und = ?, tipo_item = ?, p_icms = ?, p_red_bc_icms = ?, item_st = ?, cnpj = ? WHERE id = ?";
 
     conn.query(
       SQL,
@@ -83,6 +84,7 @@ module.exports = {
         req.body.p_icms,
         req.body.p_red_bc_icms,
         req.body.item_st,
+        req.body.cnpj,
         req.params.id,
       ],
       (err) => {
