@@ -8,8 +8,8 @@ const isAdmin = require('../config/auth/isAdmin');
 
 router.use(routerTable);
 router.use(routerLogin);
-router.use(verifyAutenticationJWT);
 router.use(routerUser);
+router.use(verifyAutenticationJWT);
 router.use(routerProduto);
 router.use(isAdmin);
 

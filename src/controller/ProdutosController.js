@@ -5,7 +5,7 @@ module.exports = {
   async createProduto(req, res) {
 
     let SQL =
-      "INSERT INTO Produtos (cod_prod, descricao, ean, ncm, ex_tipi, cest, und, tipo_item, icms, red_bc_icms, item_st)" +
+      "INSERT INTO produtos (cod_prod, descricao, ean, ncm, ex_tipi, cest, und, tipo_item, icms, red_bc_icms, item_st)" +
       "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     conn.query(
@@ -27,14 +27,14 @@ module.exports = {
         if (err) {
           res.json(err);
         }
-        res.json("Produto criado");
+        res.json("Produto criado com sucess!");
       }
     );
   },
 
   async getAllProdutos(req, res) {
 
-    let SQL = "SELECT * FROM Produtos";
+    let SQL = "SELECT * FROM produtos";
     conn.query(SQL, (err, rows) => {
       if (err) {
         res.json(err);
@@ -44,7 +44,7 @@ module.exports = {
   },
 
   async getProdutosById(req, res) {
-    let SQL = "SELECT * FROM Produtos WHERE id = ?";
+    let SQL = "SELECT * FROM produtos WHERE id = ?";
 
     conn.query(SQL, [req.params.id], (err, rows) => {
       if (err) {
@@ -55,7 +55,7 @@ module.exports = {
   },
 
   async deleteProdutos(req, res) {
-    let SQL = "DELETE FROM Produtos WHERE id = ?";
+    let SQL = "DELETE FROM produtos WHERE id = ?";
 
     conn.query(SQL, [req.params.id], (err, rows) => {
       if (err) {
@@ -67,7 +67,7 @@ module.exports = {
 
   async updateProdutos(req, res) {
     let SQL =
-      "UPDATE Produtos SET cod_prod = ?, descricao = ?, ean = ?, ncm = ?, ex_tipi = ?, cest = ?, und = ?, tipo_item = ?, icms = ?, red_bc_icms = ?, item_st = ? WHERE id = ?";
+      "UPDATE produtos SET cod_prod = ?, descricao = ?, ean = ?, ncm = ?, ex_tipi = ?, cest = ?, und = ?, tipo_item = ?, icms = ?, red_bc_icms = ?, item_st = ? WHERE id = ?";
 
     conn.query(
       SQL,
