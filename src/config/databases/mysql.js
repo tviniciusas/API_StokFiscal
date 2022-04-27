@@ -4,7 +4,7 @@ const username = process.env.username_mysql;
 const password = process.env.password_mysql;
 
 const connection = mysql.createConnection({
-  host: '192.168.1.100',
+  host: 'localhost',
   user: username,
   password: password,
   database: 'integrador_istock',
