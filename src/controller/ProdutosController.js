@@ -8,30 +8,38 @@ module.exports = {
       "INSERT INTO produtos (cnpj, cod_prod, descricao, ean, ncm, ex_tipi, cest, und, tipo_item, p_icms, p_red_bc_icms, item_st, HASH)" +
       "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    conn.query(
-      SQL,
-      [
-        req.body.cnpj,
-        req.body.cod_prod,
-        req.body.descricao,
-        req.body.ean,
-        req.body.ncm,
-        req.body.ex_tipi,
-        req.body.cest,
-        req.body.und,
-        req.body.tipo_item,
-        req.body.p_icms,
-        req.body.p_red_bc_icms,
-        req.body.item_st,
-        req.body.HASH,
-      ],
-      (err) => {
-        if (err) {
-          res.json(err);
-        }
-        res.json("Produto criado com sucess!");
+      try{
+        conn.query(
+          SQL,
+          [
+            req.body.cnpj,
+            req.body.cod_prod,
+            req.body.descricao,
+            req.body.ean,
+            req.body.ncm,
+            req.body.ex_tipi,
+            req.body.cest,
+            req.body.und,
+            req.body.tipo_item,
+            req.body.p_icms,
+            req.body.p_red_bc_icms,
+            req.body.item_st,
+            req.body.HASH,
+          ],
+          (err) => {
+            if (err) {
+              res.status(404).json(err);
+              return
+            }
+            res.status(200).json("Produto criado com sucesso!");
+            return
+          }
+        );
+
+      } catch(error){
+        res.status(404).json(error);
+        return
       }
-    );
   },
 
   async getAllProdutos(req, res) {
