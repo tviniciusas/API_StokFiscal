@@ -28,7 +28,7 @@ module.exports = {
           ],
           (err) => {
             if (err) {
-              res.status(404).json(err);
+              res.status(400).json(err);
               return
             }
             res.status(200).json("Produto criado com sucesso!");
