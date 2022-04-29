@@ -5,8 +5,8 @@ module.exports = {
   async createProduto(req, res) {
 
     let SQL =
-      "INSERT INTO produtos (cnpj, cod_prod, descricao, ean, ncm, ex_tipi, cest, und, tipo_item, p_icms, p_red_bc_icms, item_st, HASH)" +
-      "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+      "INSERT INTO produtos (cnpj, cod_prod, descricao, ean, ncm, ex_tipi, cest, und, tipo_item, p_icms, p_red_bc_icms, item_st, HASH, created_at)" +
+      "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
 
       try{
         conn.query(
