@@ -8,6 +8,15 @@ module.exports = {
       "INSERT INTO produtos (cnpj, cod_prod, descricao, ean, ncm, ex_tipi, cest, und, tipo_item, p_icms, p_red_bc_icms, item_st, HASH)" +
       "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+      let ean = [];
+      
+      for(let i = 0; i < Object.keys(req.body.ean).length; i++){
+
+        ean.push(req.body.ean[i]);
+
+      }
+
+      console.log(ean);
       try{
         conn.query(
           SQL,

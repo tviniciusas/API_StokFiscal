@@ -10,7 +10,7 @@ router.use(routerTable);
 router.use(routerLogin);
 router.use(routerUser);
 router.use(verifyAutenticationJWT);
-router.use(routerProduto);
 router.use(isAdmin);
+router.use(routerProduto);
 
 module.exports = router;
