@@ -11,6 +11,7 @@ function verifyAutenticationJWT(req, res, next) {
             });
         }
         req.username = decoded.username;
+        req.id = decoded.id;
         req.tipo = decoded.tipo;
         next();
     });
