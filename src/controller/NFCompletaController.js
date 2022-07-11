@@ -47,8 +47,7 @@ module.exports = {
       async getNfById(req, res) {
 
         let SQL = "SELECT * FROM xml_completo WHERE chave = ?";
-
-        conn.query(SQL, [req.params.chave], (err, rows) => {
+        conn.query(SQL, [req.params.id], (err, rows) => {
           if (err) {
             console.log(err);
           }
