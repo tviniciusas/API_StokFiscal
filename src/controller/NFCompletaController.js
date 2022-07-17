@@ -47,7 +47,22 @@ module.exports = {
 
       async getNfById(req, res) {
 
-        let SQL = "SELECT * FROM xml_completo WHERE chave = ?";
+        let SQL = "SELECT SUBSTRING(nf_completa,1,50000) as NF_COMP FROM xml_completo WHERE chave = ?";
+
+        conn.query(SQL, [req.params.id], (err, rows) => {
+          if (err) {
+            console.log(err);
+          }
+          res.json(rows[0].NF_COMP.toString());
+        });
+      },
+
+      async getNfByDate(req, res) {
+        
+        const { dt_doc_i, dt_doc_f, cnpj } = req.body
+
+        let SQL = `SELECT chave FROM xml_completo WHERE dt_doc BETWEEN '${dt_doc_i}' AND '${dt_doc_f}' AND cnpj = ${cnpj} `;
+
         conn.query(SQL, [req.params.id], (err, rows) => {
           if (err) {
             console.log(err);
