@@ -8,7 +8,7 @@ module.exports = {
 
         let SQL =
             "INSERT INTO xml_completo (cnpj, numero_nf, modelo, chave, nf_completa, dt_doc, created_at)" +
-            "VALUES (?,?,?,?,?, NOW())";
+            "VALUES (?,?,?,?,?,?, NOW())";
         try {
             conn.query(
                 SQL, [
