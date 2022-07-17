@@ -7,7 +7,7 @@ module.exports = {
       const maxCall = 0;
 
         let SQL =
-            "INSERT INTO xml_completo (cnpj, numero_nf, modelo, chave, nf_completa, created_at)" +
+            "INSERT INTO xml_completo (cnpj, numero_nf, modelo, chave, nf_completa, dt_doc, created_at)" +
             "VALUES (?,?,?,?,?, NOW())";
         try {
             conn.query(
@@ -17,6 +17,7 @@ module.exports = {
                 req.body.modelo,
                 req.body.chave,
                 req.body.nf_completa,
+                req.body.dt_doc,
                 req.body.created_at,
             ],
                 (err) => {
