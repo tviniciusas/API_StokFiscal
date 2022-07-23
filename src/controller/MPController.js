@@ -33,5 +33,16 @@ module.exports = {
           res.json(rows);
         });
 
+    },
+    async searchByChnfe(req, res) {
+
+        let SQL = `SELECT * FROM mov_prod where chnfe = '${req.params.id}'`;
+        con.query(SQL, (err, rows) => {
+          if (err) {
+            res.json(err);
+          }
+          res.json(rows);
+        });
+
     }
 }
