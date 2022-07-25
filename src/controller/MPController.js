@@ -5,9 +5,9 @@ module.exports = {
 
         const { cnpj, nnf, dhemi, chnfe, nitem, cprod, xprod, cbarra, cfop, cst, picms, vprod, vfrete, vseg, voutro, vdesc, vtotitem, qcom, ucom, vicms, vipi, vst } = req.body
 
-        let SQL = "INSERT INTO mov_prod (cnpj,nnf,dhemi,chnfe,nitem,cprod,xprod,cbarra,cfop,cst,picms,vprod,vfrete,vseg,voutro,vdesc,vtotitem,qcom,ucom,vicms,vipi,vst)"
+        let SQL = "INSERT INTO mov_prod (cnpj,nnf,dhemi,chnfe,nitem,cprod,xprod,cbarra,cfop,cst,picms,vprod,vfrete,vseg,voutro,vdesc,vtotitem,qcom,ucom,vicms,vipi,vst,created_at)"
             + "                     VALUES"
-            + "                     (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            + "                     (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())";
         try {
             con.query(SQL, [cnpj, nnf, dhemi, chnfe, nitem, cprod, xprod, cbarra, cfop, cst, picms, vprod, vfrete, vseg, voutro, vdesc, vtotitem, qcom, ucom, vicms, vipi, vst],
                 (err) => {
