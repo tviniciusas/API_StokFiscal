@@ -19,13 +19,10 @@ app.use((req, res, next) => {
 app.use(express.json({limit: '50mb'}));
 app.use(routes);
 
-const sslServer = https.createServer({
-    key: fs.readFileSync(__dirname + '/src/ssl/key.pem'),
-    cert: fs.readFileSync(__dirname + '/src/ssl/cert.pem')
 
-}, app);
-
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
 
-sslServer.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
